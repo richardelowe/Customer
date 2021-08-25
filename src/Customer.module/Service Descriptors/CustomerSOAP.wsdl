@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.example.org/wsdl/1626919897447" xmlns:tns0="http://www.example.org/schema/1626919897468" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Customer" targetNamespace="http://www.example.org/wsdl/1626919897447">
+  <wsdl:types>
+    <xsd:schema xmlns="http://www.example.org/schema/1626919897468" elementFormDefault="unqualified" targetNamespace="http://www.example.org/schema/1626919897468">
+      <xsd:element name="GetCustomerRequest" type="CustomerRequestType"/>
+      <xsd:element name="GetCustomerResponse" type="CustomerResponseType"/>
+      <xsd:complexType name="CustomerResponseType">
+        <xsd:sequence>
+          <xsd:element name="ID" type="xsd:string"/>
+          <xsd:element name="FirstName" type="xsd:string"/>
+          <xsd:element name="LastName" type="xsd:string"/>
+          <xsd:element name="CustType" type="xsd:string"/>
+          <xsd:element name="PriorityStatus" type="xsd:string"/>
+          <xsd:element name="StartDate" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="CustomerRequestType">
+        <xsd:sequence>
+          <xsd:element name="ID" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="GetCustomerRequest">
+    <wsdl:part element="tns0:GetCustomerRequest" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="GetCustomerResponse">
+    <wsdl:part element="tns0:GetCustomerResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:portType name="Customer">
+    <wsdl:operation name="GetCustomer">
+      <wsdl:input message="tns:GetCustomerRequest" name="GetCustomerInput"/>
+      <wsdl:output message="tns:GetCustomerResponse" name="GetCustomerOutput"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SOAPServiceBinding" type="tns:Customer">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="GetCustomer">
+      <soap:operation soapAction="GetCustomer" style="document"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Customer">
+    <wsdl:port binding="tns:SOAPServiceBinding" name="CustomerSOAP">
+      <soap:address location="http://a01f73b83fbc34285be6079ca288e351-2038340944.ap-southeast-2.elb.amazonaws.com:80/SOAPServiceBinding/customer/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

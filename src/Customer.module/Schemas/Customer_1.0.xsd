@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema elementFormDefault="qualified" targetNamespace="/T1629887215444Converted/JsonSchema" xmlns:tns="/T1629887215444Converted/JsonSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="CustomerGetRequest_id" type="tns:CustomerGetRequest_id"/>
+    <xs:simpleType name="CustomerGetRequest_id">
+        <xs:restriction base="xs:string"/>
+    </xs:simpleType>
+    <xs:element name="CustomerGetRequest_priorityStatus" type="tns:CustomerGetRequest_priorityStatus"/>
+    <xs:simpleType name="CustomerGetRequest_priorityStatus">
+        <xs:restriction base="xs:string"/>
+    </xs:simpleType>
+    <xs:element name="CustomerGetRequest_lastName" type="tns:CustomerGetRequest_lastName"/>
+    <xs:simpleType name="CustomerGetRequest_lastName">
+        <xs:restriction base="xs:string"/>
+    </xs:simpleType>
+    <xs:element name="CustomerGetRequest_customerType" type="tns:CustomerGetRequest_customerType"/>
+    <xs:simpleType name="CustomerGetRequest_customerType">
+        <xs:restriction base="xs:string"/>
+    </xs:simpleType>
+    <xs:element name="CustomerGetRequest_startDate" type="tns:CustomerGetRequest_startDate"/>
+    <xs:simpleType name="CustomerGetRequest_startDate">
+        <xs:restriction base="xs:string"/>
+    </xs:simpleType>
+    <xs:element name="CustomerGetRequest" type="tns:CustomerGetRequest"/>
+    <xs:complexType name="CustomerGetRequest">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="id" type="xs:string"/>
+            <xs:element minOccurs="0" name="firstName" type="xs:string"/>
+            <xs:element minOccurs="0" name="lastName" type="xs:string"/>
+            <xs:element minOccurs="0" name="customerType" type="xs:string"/>
+            <xs:element minOccurs="0" name="priorityStatus" type="xs:string"/>
+            <xs:element minOccurs="0" name="startDate" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="CustomerGetRequest_firstName" type="tns:CustomerGetRequest_firstName"/>
+    <xs:simpleType name="CustomerGetRequest_firstName">
+        <xs:restriction base="xs:string"/>
+    </xs:simpleType>
+</xs:schema>

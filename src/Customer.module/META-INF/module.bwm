@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sca:composite xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:BW="http://xsd.tns.tibco.com/amf/models/sca/implementationtype/BW" xmlns:XMLSchema="http://www.w3.org/2001/XMLSchema" xmlns:axis2="http://xsd.tns.tibco.com/bw/models/binding/soap/axis2" xmlns:compositeext="http://schemas.tibco.com/amx/3.0/compositeext" xmlns:rest="http://xsd.tns.tibco.com/bw/models/binding/rest" xmlns:sca="http://www.osoa.org/xmlns/sca/1.0" xmlns:scact="http://xsd.tns.tibco.com/amf/models/sca/componentType" xmlns:scaext="http://xsd.tns.tibco.com/amf/models/sca/extensions" xmlns:schema_1626919897468="http://www.example.org/schema/1626919897468" xmlns:wsdl_1626919897447="http://www.example.org/wsdl/1626919897447" xmi:id="_34EjQAWOEey7iO0D9cc4hw" targetNamespace="http://tns.tibco.com/bw/composite/Customer.module" name="Customer.module" compositeext:version="1.0.0" compositeext:formatVersion="2">
+  <sca:service xmi:id="_-M5-YAWOEey7iO0D9cc4hw" name="customer" promote="ComponentProcess/customer">
+    <sca:interface.wsdl xmi:id="_-NB6MAWOEey7iO0D9cc4hw" interface="http://xmlns.example.com/20210825202614PLT#wsdl.interface(customer)" scaext:wsdlLocation="../Processes/customer/module/Process.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_-NIA0AWOEey7iO0D9cc4hw" name="RestService" path="/customer/{id}" docBasePath="http://localhost:7777/Customer.module" docResourcePath="Customer-id" basePath="/" connector="customer.module.Process" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/Customer_1.0.json">
+      <operation xmi:id="_-NJO8AWOEey7iO0D9cc4hw" operationName="get" nickname="getCustomer_id" httpMethod="GET" responseStyle="element" outputPartName="item">
+        <clientFormat>json</clientFormat>
+      </operation>
+      <parameters xmi:id="_-Ni3kAWOEey7iO0D9cc4hw">
+        <parameterMapping xmi:id="_-NjeoAWOEey7iO0D9cc4hw" parameterName="id" parameterType="Path" dataType="string" required="true" description=""/>
+      </parameters>
+      <advancedConfig xmi:id="_-NIA0QWOEey7iO0D9cc4hw" blockingQueueSize="2147483647"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_-NJO8QWOEey7iO0D9cc4hw" bindingName="RestService"/>
+  </sca:service>
+  <sca:reference xmi:id="_B7H8kgWPEey7iO0D9cc4hw" multiplicity="0..1" name="Customer" wiredByImpl="false" promote="ComponentProcess/Customer">
+    <sca:interface.wsdl xmi:id="_B7IjoAWPEey7iO0D9cc4hw" interface="http://www.example.org/wsdl/1626919897447#wsdl.interface(Customer)" scaext:wsdlLocation="../Service%20Descriptors/CustomerSOAP.wsdl"/>
+    <scaext:binding xsi:type="axis2:SOAPReferenceBinding" xmi:id="_B7K_4AWPEey7iO0D9cc4hw" name="SOAPReferenceBinding" portTypeQName="wsdl_1626919897447:Customer" transportBindingType="HTTP" modelVersion="1.2.0" portTypeWSDLLocation="platform:/resource/Customer.module/Service%20Descriptors/CustomerSOAP.wsdl" serviceQName="wsdl_1626919897447:Customer" portName="CustomerSOAP" serviceBindingQName="wsdl_1626919897447:SOAPServiceBinding" locationURI="http://a01f73b83fbc34285be6079ca288e351-2038340944.ap-southeast-2.elb.amazonaws.com:80/SOAPServiceBinding/customer/" wsdlLocation="platform:/resource/Customer.module/Service%20Descriptors/CustomerSOAP.wsdl">
+      <bindingType xmi:id="_B7PRUAWPEey7iO0D9cc4hw" style="DOCUMENT"/>
+      <operationConfiguration xmi:id="_B7RGgAWPEey7iO0D9cc4hw" operationName="GetCustomer" action="GetCustomer">
+        <bindingType xmi:id="_B7RGgQWPEey7iO0D9cc4hw" style="DOCUMENT"/>
+        <messageConfiguration xmi:id="_B7RGggWPEey7iO0D9cc4hw" description="GetCustomerInput" messageQName="wsdl_1626919897447:GetCustomerRequest" wsdlLocation="platform:/resource/Customer.module/Service%20Descriptors/CustomerSOAP.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_B7RGgwWPEey7iO0D9cc4hw" partName="parameters" partElementName="schema_1626919897468:GetCustomerRequest" encoding="literal"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_B7RGhAWPEey7iO0D9cc4hw" description="GetCustomerOutput" messageQName="wsdl_1626919897447:GetCustomerResponse" messageDirection="OUTPUT" wsdlLocation="platform:/resource/Customer.module/Service%20Descriptors/CustomerSOAP.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_B7RGhQWPEey7iO0D9cc4hw" partName="parameters" partElementName="schema_1626919897468:GetCustomerResponse" encoding="literal"/>
+        </messageConfiguration>
+        <context xmi:id="_B7RGhgWPEey7iO0D9cc4hw">
+          <inputMapping xmi:id="_B7RGhwWPEey7iO0D9cc4hw"/>
+          <outputMapping xmi:id="_B7RGiAWPEey7iO0D9cc4hw" direction="OUTPUT"/>
+        </context>
+      </operationConfiguration>
+      <outboundConfiguration xsi:type="axis2:HttpTransportConfiguration" xmi:id="_B7ZpYAWPEey7iO0D9cc4hw"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_B7a3gAWPEey7iO0D9cc4hw" bindingName="SOAPReferenceBinding"/>
+  </sca:reference>
+  <sca:property xmi:id="_4OdqAAWOEey7iO0D9cc4hw" name="BW.APPNODE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_4OkXsAWOEey7iO0D9cc4hw" name="BW.DEPLOYMENTUNIT.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_4OoCEAWOEey7iO0D9cc4hw" name="BW.HOST.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_4OrFYAWOEey7iO0D9cc4hw" name="BW.DEPLOYMENTUNIT.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_4OuIsAWOEey7iO0D9cc4hw" name="BW.MODULE.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_4OxzEAWOEey7iO0D9cc4hw" name="BW.CLOUD.PORT" type="XMLSchema:int" scalable="true"/>
+  <sca:property xmi:id="_4O02YAWOEey7iO0D9cc4hw" name="BW.MODULE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:component xmi:id="_4D9DIAWOEey7iO0D9cc4hw" name="ComponentProcess" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_4D9DIQWOEey7iO0D9cc4hw" processName="customer.module.Process"/>
+    <sca:service xmi:id="_-M0e0AWOEey7iO0D9cc4hw" name="customer">
+      <sca:interface.wsdl xmi:id="_-M1s8AWOEey7iO0D9cc4hw" interface="http://xmlns.example.com/20210825202614PLT#wsdl.interface(customer)"/>
+    </sca:service>
+    <sca:reference xmi:id="_B7H8kAWPEey7iO0D9cc4hw" name="Customer">
+      <sca:interface.wsdl xmi:id="_B7H8kQWPEey7iO0D9cc4hw" interface="http://www.example.org/wsdl/1626919897447#wsdl.interface(Customer)" scaext:wsdlLocation="../Service%20Descriptors/CustomerSOAP.wsdl"/>
+    </sca:reference>
+  </sca:component>
+</sca:composite>
